@@ -1,0 +1,19 @@
+body, html {
+  width: 100%;
+}
+
+.secondary-menu {
+  display: flex; 
+  justify-content: space-between;
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 0px !important;
+  font-size: 18px;
+}
+
+.main-menu {
+  background-color: lightblue !important;
+  padding-bottom: 1%;
+}
+

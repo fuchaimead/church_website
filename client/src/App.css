@@ -1,19 +1,39 @@
-body, html {
+/* body, html {
   width: 100%;
-}
+} */
 
 .secondary-menu {
   display: flex; 
   justify-content: space-between;
 }
 
-.ui.secondary.pointing.menu {
+.ui.secondary.menu {
   border-bottom: 0px !important;
   font-size: 18px;
 }
 
-.main-menu {
-  background-color: lightblue !important;
-  padding-bottom: 1%;
+.ui.secondary.menu .active.item {
+  font-weight: bold;
+  background: none !important;
 }
 
+a:hover {
+  background: none !important;
+}
+
+.main-menu {
+  background-color: lightblue !important;
+}
+
+.ui.text.container {
+  padding: 5%;
+
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+}

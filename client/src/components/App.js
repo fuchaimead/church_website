@@ -5,6 +5,8 @@ import Login from './Login';
 import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
+import About from './About';
+import Membership from './Membership';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
@@ -22,7 +24,9 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <AuthRoute exact path='/admin' component={Login} />
-            <AuthRoute exact path='/register' component={Register} />
+            <ProtectedRoute exact path='/register' component={Register} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/membership' component={Membership} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

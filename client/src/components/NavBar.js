@@ -6,10 +6,26 @@ import { handleLogout } from '../actions/auth';
 import EpiscopalShield from '../images/EpiscopalShieldWeb.jpg';
 
 class NavBar extends Component {
-
   state = { activeItem: 'home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+
+  rightNavs = () => {
+    const { user, dispatch, history } = this.props;
+
+    if (user.id) {
+      return (
+        <Menu.Menu position='right'>
+          <Menu.Item
+            name='Logout'
+            onClick={() => dispatch(handleLogout(history))}
+          />
+        </Menu.Menu>
+      );
+    }
+  }
+
 
   render() {
     const { activeItem } = this.state
@@ -26,6 +42,7 @@ class NavBar extends Component {
             <Menu.Item name='prayer requests' active={activeItem === 'prayer requests'} onClick={this.handleItemClick} />
             <Menu.Item name='resources' active={activeItem === 'resources'} onClick={this.handleItemClick} />
             <Menu.Item as={Link} to='/membership' name='membership' active={activeItem === 'membership'} onClick={this.handleItemClick} />
+            { this.rightNavs() }
           </Menu>
         </Grid>
         </Segment>

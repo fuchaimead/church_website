@@ -39,7 +39,7 @@ export const handleLogout = history => {
         dispatch(setHeaders(headers));
         dispatch(logout());
         dispatch(setFlash('Logged out successfully!', 'green'));
-        history.push('/login');
+        history.push('/');
       })
       .catch(res => {
         const messages =

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Segment, Grid, Header } from 'semantic-ui-react';
+import { Menu, Segment, Grid, Header, Dropdown } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
@@ -49,7 +49,16 @@ class NavBar extends Component {
         <Menu secondary className='main-menu'>
             <Menu.Item as={Link} to='/' name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
             <Menu.Item as={Link} to='/about' name='about us' active={activeItem === 'about us'} onClick={this.handleItemClick} />
-            <Menu.Item name='ministries' active={activeItem === 'ministries'} onClick={this.handleItemClick} />
+            <Dropdown text='Ministries' pointing className='link item'>
+              <Dropdown.Menu>
+              <Dropdown.Item as={Link} to='/daughters-of-the-king'>
+                Daughters of the King
+              </Dropdown.Item>
+              <Dropdown.Item>
+                Bible Study
+              </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
             <Menu.Item name='sermons' active={activeItem === 'sermons'} onClick={this.handleItemClick} />
             <Menu.Item name='contact us' active={activeItem === 'contact us'} onClick={this.handleItemClick} />
         </Menu>

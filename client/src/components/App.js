@@ -7,6 +7,7 @@ import Flash from './Flash';
 import Home from './Home';
 import About from './About';
 import Membership from './Membership';
+import Daughters from './Daughters';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
@@ -27,6 +28,7 @@ class App extends Component {
             <ProtectedRoute exact path='/register' component={Register} />
             <Route exact path='/about' component={About} />
             <Route exact path='/membership' component={Membership} />
+            <Route exact path='/daughters-of-the-king' component={Daughters} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

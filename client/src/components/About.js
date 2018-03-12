@@ -1,13 +1,14 @@
 import React from 'react' 
 import { Segment, Container, Header, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+
 class About extends React.Component {
   render(){
     return(
       <Segment basic> 
         <Header as='h1' className='center'> About Saint John's Episcopal Church </Header>
         <p className='center'><i>“Our mission is to grow in our relationship with Christ
-            and to make Him known to all.</i></p>
+            and to make Him known to all."</i></p>
         <Container text>
         <p> St. John’s is centrally located in Farmington and serves folks from the Four Corners area 
         (The Four Corners is the only place in the U.S. where four states meet: New Mexico, Colordao, 
@@ -27,7 +28,7 @@ class About extends React.Component {
         all other congregations have either rebuilt their churches or relocated to other locations. 
         On October 11, 2008, St. John’s was re-consecrated to the Glory of God by Bishop Bill Frey in 
         celebration of a century of worship and service in Farmington. </p>       
-        <Button basic as={Link} to='/membership'> Become a Member </Button>
+        <Button basic as={ Link } to='/membership'> Become a Member </Button>
         </Container> 
 
 

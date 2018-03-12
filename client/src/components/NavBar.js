@@ -39,28 +39,37 @@ class NavBar extends Component {
           </Link>
           <Header as='h1'>Saint John's Episcopal Church</Header>
           <Menu secondary>
-            <Menu.Item name='prayer requests' active={activeItem === 'prayer requests'} onClick={this.handleItemClick} />
-            <Menu.Item name='resources' active={activeItem === 'resources'} onClick={this.handleItemClick} />
-            <Menu.Item as={Link} to='/membership' name='membership' active={activeItem === 'membership'} onClick={this.handleItemClick} />
+            <Menu.Item as={ Link } to='/annoucements' name='annoucements' active={ activeItem === 'annoucements' } onClick={ this.handleItemClick } />
+            <Menu.Item name='resources' active={ activeItem === 'resources' } onClick={ this.handleItemClick } />
+            <Menu.Item as={ Link } to='/membership' name='membership' active={activeItem === 'membership'} onClick={ this.handleItemClick } />
             { this.rightNavs() }
           </Menu>
         </Grid>
         </Segment>
         <Menu secondary className='main-menu'>
-            <Menu.Item as={Link} to='/' name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-            <Menu.Item as={Link} to='/about' name='about us' active={activeItem === 'about us'} onClick={this.handleItemClick} />
+            <Menu.Item as={ Link } to='/' name='home' active={ activeItem === 'home' } onClick={ this.handleItemClick } />
+            <Dropdown text='About Us' pointing className='link item'>
+              <Dropdown.Menu>
+                <Dropdown.Item as={ Link } to='/about'>
+                  About Us
+                </Dropdown.Item>
+                <Dropdown.Item as={ Link } to='/episcopal-church'>
+                  Episcopal Church
+                </Dropdown.Item>  
+              </Dropdown.Menu>
+            </Dropdown>
             <Dropdown text='Ministries' pointing className='link item'>
               <Dropdown.Menu>
-              <Dropdown.Item as={Link} to='/daughters-of-the-king'>
+              <Dropdown.Item as={ Link } to='/daughters-of-the-king'>
                 Daughters of the King
               </Dropdown.Item>
-              <Dropdown.Item>
+              <Dropdown.Item as={ Link } to='/bible-studies'>
                 Bible Study
               </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Menu.Item name='sermons' active={activeItem === 'sermons'} onClick={this.handleItemClick} />
-            <Menu.Item name='contact us' active={activeItem === 'contact us'} onClick={this.handleItemClick} />
+            <Menu.Item as={ Link } to='/sermons' name='sermons' active={ activeItem === 'sermons' } onClick={ this.handleItemClick } />
+            <Menu.Item as={ Link } to='/contact' name='contact us' active={ activeItem === 'contact us' } onClick={ this.handleItemClick } />
         </Menu>
       </div>
     );

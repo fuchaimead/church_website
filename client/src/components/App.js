@@ -6,8 +6,13 @@ import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
 import About from './About';
+import Annoucements from './Annoucements';
+import Contact from './Contact';
 import Membership from './Membership';
 import Daughters from './Daughters';
+import BibleStudy from './BibleStudy';
+import EndowmentFund from './EndowmentFund';
+import Sermons from './Sermons';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
@@ -23,13 +28,18 @@ class App extends Component {
         <Flash />
         <FetchUser>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <AuthRoute exact path='/admin' component={Login} />
-            <ProtectedRoute exact path='/register' component={Register} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/membership' component={Membership} />
-            <Route exact path='/daughters-of-the-king' component={Daughters} />
-            <Route component={NoMatch} />
+            <Route exact path='/' component={ Home } />
+            <AuthRoute exact path='/admin' component={ Login } />
+            <ProtectedRoute exact path='/register' component={ Register } />
+            <Route exact path='/about' component={ About } />
+            <Route exact path='/annoucements' component={ Annoucements } />
+            <Route exact path='/membership' component={ Membership } />
+            <Route exact path='/daughters-of-the-king' component={ Daughters } />
+            <Route exact path='/bible-studies' component={ BibleStudy } />
+            <Route exact path='/endowment-fund' component={ EndowmentFund } />
+            <Route exact path='/sermons' component={ Sermons } />
+            <Route exact path='/contact' component={ Contact } />
+            <Route component={ NoMatch } />
           </Switch>
         </FetchUser>
         <Footer /> 

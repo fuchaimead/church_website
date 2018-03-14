@@ -8,6 +8,7 @@ import Home from './Home';
 import About from './About';
 import Annoucements from './Annoucements';
 import Contact from './Contact';
+import EpiscopalChurch from './EpiscopalChurch';
 import Membership from './Membership';
 import Daughters from './Daughters';
 import BibleStudy from './BibleStudy';
@@ -39,6 +40,7 @@ class App extends Component {
             <Route exact path='/daughters-of-the-king' component={ Daughters } />
             <Route exact path='/bible-studies' component={ BibleStudy } />
             <Route exact path='/endowment-fund' component={ EndowmentFund } />
+            <Route exact path='/episcopal-church' component={ EpiscopalChurch } />
             <Route exact path='/sermons' component={ Sermons } />
             <Route exact path='/contact' component={ Contact } />
             <Route exact path='/resources' component={ Resources } />

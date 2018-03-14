@@ -16,7 +16,7 @@ class Home extends Component {
             </Grid.Column>
             <Grid.Column width={8}> 
               <Container> 
-                <p style={styles.center}><i>“We do not draw people to Christ by loudly discrediting what they believe, 
+                <p><i>“We do not draw people to Christ by loudly discrediting what they believe, 
                 telling them how wrong they are and how right we are, but by showing them a light so 
                 lovely that they want to know its source.”—Madeleine L’Engle</i></p>
                 <br />

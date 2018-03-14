@@ -11,7 +11,7 @@ class About extends React.Component {
         them a light so lovely that they want to know its source.”—Madeleine L’Engle</i></p>
 
         <Container text>
-        We Want You to be a Part of our Family
+        <Header as='h3'> We Want You to be a Part of our Family </Header>
         <br />
         <p>
         We look forward to having you be a part of our parish family. 

@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { Header, Container, Grid, Segment, Divider } from 'semantic-ui-react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import church from '../images/church.jpg';
 
 class Home extends Component {
   render() {
     return (
-      <div> 
+      <Segment basic> 
         <Header as='h1' className='center'>Welcome</Header>
         <Header as='h3' className='center'>Saint John's Episcopal Church | Farmington, NM</Header>
         <Segment basic>
           <Grid>
             <Grid.Column  width={8}>
-              <img className='center' src={church} alt="church" />
+              <img className='center' src={ church } alt="church" />
             </Grid.Column>
             <Grid.Column width={8}> 
-              <Container text> 
+              <Container> 
                 <p style={styles.center}><i>“We do not draw people to Christ by loudly discrediting what they believe, 
                 telling them how wrong they are and how right we are, but by showing them a light so 
                 lovely that they want to know its source.”—Madeleine L’Engle</i></p>
@@ -94,7 +94,7 @@ class Home extends Component {
               </Container>
             </Grid.Column>
         </Grid> 
-      </div>
+      </Segment>
     );
   }
 }
@@ -102,7 +102,7 @@ class Home extends Component {
 const styles = {
   font: {
     fontSize: '1.5em',
-  }
+  },
 }
 
 export default Home;

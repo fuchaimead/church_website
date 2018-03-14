@@ -2,6 +2,11 @@
   width: 100%;
 } */
 
+.ui.text.container {
+  padding: 5%;
+}
+
+
 .secondary-menu {
   display: flex; 
   justify-content: space-between;
@@ -25,10 +30,7 @@ a:hover {
   background-color:#609aa5 !important;
 }
 
-.ui.text.container {
-  padding: 5%;
 
-}
 
 .center {
   display: flex;

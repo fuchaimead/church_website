@@ -1,4 +1,4 @@
-import React from 'react' 
+import React from 'react';
 import { Segment, Container, Header, Button } from 'semantic-ui-react';
 
 class About extends React.Component {
@@ -21,7 +21,7 @@ class About extends React.Component {
         understand our customs and traditions. Official membership can come when you decide you are
         ready to join.
         </p>
-        
+
         <p>
         Becoming a Member of St. John’s
         People become members of St. John's in several ways. The first is through baptism at an 

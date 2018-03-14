@@ -5,7 +5,7 @@ class Annoucements extends React.Component {
 
   render(){
     return(
-      <div>
+      <Segment basic>
         <p className='center'><i>“If you missed church last Sunday, here
         are the announcements from the bulletin of March 4</i></p>
 
@@ -13,7 +13,7 @@ class Annoucements extends React.Component {
         Don’t forget to set your clocks ahead 1 hour for church.</p>
 
         <p> make this page editable </p>
-      </div>
+      </Segment>
     )
   }
 }

@@ -1,33 +1,33 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 
 const Lent = () => {
   return(
     <div>
-      <Container>
-      The Story of Lent
+      <Container text>
+      <Header>The Story of Lent</Header>
 
-      Lent is the period of forty days which comes before Easter in the Christian calendar. 
+      <p>Lent is the period of forty days which comes before Easter in the Christian calendar. 
       Beginning on Ash Wednesday, Lent is a season of reflection and preparation before the 
       celebrations of Easter. By observing the forty days of Lent, Christians replicate Jesus 
       Christ's sacrifice and withdrawal into the desert for forty days. Lent is marked by fasting, 
-      both from food and festivities.
-      Whereas Easter celebrates the resurrection of Jesus after his death on the cross, 
-      Lent recalls the events leading up to and including Jesus' crucifixion by Rome.
-      The Christian churches that observe Lent in the 21st century (and not all do significantly)
+      both from food and festivities.</p>
+      <p>Whereas Easter celebrates the resurrection of Jesus after his death on the cross, 
+      Lent recalls the events leading up to and including Jesus' crucifixion by Rome.</p>
+      <p>The Christian churches that observe Lent in the 21st century (and not all do significantly)
       use it as a time for prayer and penance. Only a small number of people today fast for the 
       whole of Lent, although some maintain the practice on Ash Wednesday and Good Friday. 
       It is more common these days for believers to surrender a particular vice such as favorite 
       foods or smoking. Whatever the sacrifice it is a reflection of Jesus' deprivation in the 
-      wilderness and a test of self-discipline.
+      wilderness and a test of self-discipline.</p>
 
-      Why 40 days?
-      40 is a significant number in Jewish-Christian scripture:
-      In Genesis, the flood which destroyed the earth was brought about by 40 days and nights of rain.
+      <Header>Why 40 days?</Header>
+      <p>40 is a significant number in Jewish-Christian scripture:</p>
+      <p>In Genesis, the flood which destroyed the earth was brought about by 40 days and nights of rain.
       The Hebrews spent 40 years in the wilderness before reaching the land promised to them by God.
       Moses fasted for 40 days before receiving the ten commandments on Mount Sinai.
       Jesus spent 40 days fasting in the wilderness in preparation for his ministry.
-      Most Christians regard Jesus' time in the wilderness as the key event for the duration of Lent.
+      Most Christians regard Jesus' time in the wilderness as the key event for the duration of Lent.</p>
       Why is it called Lent?
       And why the color purple?
 

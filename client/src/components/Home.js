@@ -11,8 +11,8 @@ class Home extends Component {
         <Header as='h3' className='center'>Saint John's Episcopal Church | Farmington, NM</Header>
         <Segment basic>
           <Grid>
-            <Grid.Column  width={8}>
-              <img className='center' src={ church } alt="church" />
+            <Grid.Column className='center' width={8}>
+              <img  src={ church } alt="church" />
             </Grid.Column>
             <Grid.Column width={8}> 
               <Container> 
@@ -37,8 +37,8 @@ class Home extends Component {
         <Divider />
           <Grid> 
             <Grid.Column width={8}> 
-            <Container text>
-              <p>Schedule of Services</p>
+            <Container>
+              <Header as='h4'>Schedule of Services</Header>
               <p>
                 SUNDAY
                 <br />
@@ -70,8 +70,8 @@ class Home extends Component {
               </p>
             </Container> 
             </Grid.Column>
-            <Grid.Column>
-              <Container text>
+            <Grid.Column width={8}>
+              <Container>
               <p>Saint John's Episcopal
                 <br />
               312 North Orchard Ave.
@@ -79,18 +79,22 @@ class Home extends Component {
               Farmington, NM 87401
               <br />
               (505) 325-5832 </p>
-              <p> Of special interest: </p>
-              <p>A little bit about Lent</p>
+              <Header as='h4'> Of special interest: </Header>
+              <Link to='/lent'>A little bit about Lent</Link>
               <p>Daylight Savings Time begins</p>
               <p> Holy Week Schedule </p>
               <p>Knitting Lessons at St. John's</p>
-              Lenten Soup Supper and Study
-              Staff:
-              Fr. Guy Mackey OPA, rector, (email)
-              Mo. Carol Tookey, priest associate
-              Mo. Pat Cook, priest associate
-              Jack Yerby, parish administrator/ organist
-              Wardens and Vestry
+              <p> Lenten Soup Supper and Study</p>
+              <Header as='h4'>Staff:</Header>
+              <p>Fr. Guy Mackey OPA, rector, (email)
+                <br />
+                Mo. Carol Tookey, priest associate
+                <br />
+                Mo. Pat Cook, priest associate
+                <br />
+                Jack Yerby, parish administrator/ organist
+                <br />
+                Wardens and Vestry</p>
               </Container>
             </Grid.Column>
         </Grid> 

@@ -2,8 +2,12 @@
   width: 100%;
 } */
 
-.ui.text.container {
-  padding: 5%;
+p {
+  font-size: 1.2em;
+}
+
+.ui.container {
+  padding: 3%;
 }
 
 

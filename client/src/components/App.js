@@ -12,6 +12,7 @@ import Membership from './Membership';
 import Daughters from './Daughters';
 import BibleStudy from './BibleStudy';
 import Resources from './Resources';
+import Lent from './Lent';
 import EndowmentFund from './EndowmentFund';
 import Sermons from './Sermons';
 import ProtectedRoute from './ProtectedRoute';
@@ -41,6 +42,7 @@ class App extends Component {
             <Route exact path='/sermons' component={ Sermons } />
             <Route exact path='/contact' component={ Contact } />
             <Route exact path='/resources' component={ Resources } />
+            <Route exact path='/lent' component={ Lent } />
             <Route component={ NoMatch } />
           </Switch>
         </FetchUser>

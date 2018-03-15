@@ -28,24 +28,26 @@ const Lent = () => {
       Moses fasted for 40 days before receiving the ten commandments on Mount Sinai.
       Jesus spent 40 days fasting in the wilderness in preparation for his ministry.
       Most Christians regard Jesus' time in the wilderness as the key event for the duration of Lent.</p>
-      Why is it called Lent?
-      And why the color purple?
+      <p>Why is it called Lent?</p>
+      <p>And why the color purple?</p>
 
-      Lent is an old English word meaning 'lengthen' and is observed in the spring, when the days begin 
-      to get longer.
-      Purple is the symbolic color used in some churches throughout Lent for drapes and altar frontals. 
-      This color is used for two reasons: first, because it is associated with mourning and so anticipates the pain and suffering of the Crucifixion, and second, because purple is the color associated with royalty, and celebrates Christ's resurrection and sovereignty.
+      <p>Lent is an old English word meaning 'lengthen' and is observed in the spring, when the days begin 
+      to get longer.</p>
+      <p>Purple is the symbolic color used in some churches throughout Lent for drapes and altar frontals. 
+      This color is used for two reasons: first, because it is associated with mourning and so anticipates 
+      the pain and suffering of the Crucifixion, and second, because purple is the color associated with 
+      royalty, and celebrates Christ's resurrection and sovereignty.</p>
 
       East and West:
-      Both the Eastern and Western churches observe Lent but they count the 40 days differently.
+      <p>Both the Eastern and Western churches observe Lent but they count the 40 days differently.</p>
 
-      In the Western church (Roman Catholic and Anglican), Lent excludes Sundays (which are celebrated 
+      <p>In the Western church (Roman Catholic and Anglican), Lent excludes Sundays (which are celebrated 
       as miniature Easters) whereas in the Eastern church (the various Orthodox Churches), Lent 
-      includes Sundays.
-      The two Churches also start Lent on different days. Western churches start Lent 40 days 
+      includes Sundays.</p>
+      <p>The two Churches also start Lent on different days. Western churches start Lent 40 days 
       (not counting Sundays) before Easter. Since Easter is always on a Sunday, 40 days prior is 
       always a Wednesday. Thus, Lent starts on Ash Wednesday. Eastern churches start Lent on the 
-      Monday of the 7th week before Easter, and end it on the Friday nine days before Easter. 
+      Monday of the 7th week before Easter, and end it on the Friday nine days before Easter. </p>
       Eastern churches call this period the 'Great Lent'. The last week of Lent is called Holy Week.
       </Container>
   </div>

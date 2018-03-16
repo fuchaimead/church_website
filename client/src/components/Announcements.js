@@ -1,6 +1,8 @@
 import React from 'react';
-import { Header, Container, Segment } from 'semantic-ui-react';
+import { Header, Container, Segment, Button, Icon } from 'semantic-ui-react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Announcements extends React.Component {
   state = { announcements: [] }
@@ -17,15 +19,38 @@ class Announcements extends React.Component {
 
   displayAnnouncements = () => {
     const { id } = this.props.match.params
-    return this.state.announcements.map(a => {
-      return(
-        <div key={a.id}> 
-        <Header>{a.title}</Header>
-        <p> {a.body}</p>
-        <p>{a.image}</p>
-        </div>
-      )
-    })
+    const { user } = this.props
+    if (user.id){ 
+      return this.state.announcements.map(a => {
+        return(
+          <div key={a.id}> 
+          <Header>{a.title}</Header>
+          <p> {a.body}</p>
+          <p>{a.image}</p>
+          <Button
+              as={Link} 
+              to='announcement-form'
+              basic
+              icon
+              labelPosition='left'
+            >
+              <Icon name='add' />
+              Announcement
+            </Button>
+          </div>
+        )
+      }) 
+    } else {
+      return this.state.announcements.map(a => {
+        return(
+          <div key={a.id}> 
+          <Header>{a.title}</Header>
+          <p> {a.body}</p>
+          <p>{a.image}</p>
+          </div>
+        )
+      }) 
+    }
   }
 
   render(){
@@ -39,4 +64,8 @@ class Announcements extends React.Component {
   }
 }
 
-export default Announcements 
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default connect(mapStateToProps)(Announcements) 

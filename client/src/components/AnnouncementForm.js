@@ -1,50 +1,59 @@
 import React from 'react';
-import { Header, Container, Segment } from 'semantic-ui-react';
+import { Header, Container, Segment, Form, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
 class Announcements extends React.Component {
-  state = { announcements: [] }
+  state = { title: '', body: '' }
 
+  handleSubmit = (e) => {
+    const { title, body } = this.state
+    e.preventDefault();
+    // let quiz = { title: title, body: body }
+    // dispatch(addQuiz(quiz, history))
+  }
   
-  componentDidMount() {
-    axios.get('/api/announcements')
-      .then( res => {
-        this.setState({ announcements: res.data })
-      }).catch( err => {
-        // TODO
-    });
-  }
 
-  displayAnnouncements = () => {
-    const { id } = this.props.match.params
-    return this.state.announcements.map(a => {
-      return(
-        <div key={a.id}> 
-        <Header>{a.title}</Header>
-        <p> {a.body}</p>
-        <p>{a.image}</p>
-        </div>
-      )
-    })
-  }
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+  
 
-  render(){
+  render() {
     const { user } = this.props;
-    if (user.id){
-    return(
-      <Segment basic>
-        <p className='center'><i>“If you missed church last Sunday, here
-        are the announcements from the bulletin of March 4</i></p>
-        <Header> This is the form </Header> 
-        { this.displayAnnouncements() }
-      </Segment>
-    )} else 
+    const { title, body } = this.state;
+    if (user.id) {
       return(
-        <NoMatch />
-      )
-  }
+        <Container basic>
+          <Header> Add Announcement </Header> 
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group widths='equal'>
+              <Form.Input 
+                label='Title'
+                name='title'
+                value={title}  
+                placeholder='Title' 
+                autoFocus={true}
+                required
+                onChange={this.handleChange}>
+              </Form.Input>
+            </Form.Group>
+            <Form.Group widths='equal'>
+              <Form.TextArea 
+                name='body'
+                value={body}
+                label='Body' 
+                onChange={this.handleChange}
+                 >
+              </Form.TextArea>
+            </Form.Group>
+          </Form>
+        </Container>
+        )
+      } else 
+        return(
+          <NoMatch />
+        )
+      }
 }
 
 
@@ -53,3 +62,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Announcements)
+
+

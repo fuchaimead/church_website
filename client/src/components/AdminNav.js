@@ -38,7 +38,7 @@ class NavBar extends Component {
           </Link>
           <Header as='h1'>Saint John's Episcopal Church</Header>
           <Menu secondary>
-            <Menu.Item as={ Link } to='/announcement-form' name='announcements' active={ activeItem === 'announcements' } onClick={ this.handleItemClick } />
+            <Menu.Item as={ Link } to='/announcements' name='announcements' active={ activeItem === 'announcements' } onClick={ this.handleItemClick } />
             <Menu.Item as={ Link } to='/resources' name='resources' active={ activeItem === 'resources' } onClick={ this.handleItemClick } />
             <Menu.Item as={ Link } to='/membership' name='membership' active={ activeItem === 'membership' } onClick={ this.handleItemClick } />
             { this.rightNavs() }

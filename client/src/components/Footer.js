@@ -3,7 +3,7 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import Iframe from 'react-iframe';
 
 const Footer = () => (
-  <div style={styles.footer}>
+  <div className='footer'>
     <Grid> 
       <Grid.Row>
       <Grid.Column width={4} style={styles.center}>
@@ -38,14 +38,6 @@ const Footer = () => (
 )
 
 const styles = {
-  footer: {
-    background: '#233741',
-    height: '250px',
-    paddingTop: '2%',
-    color: 'white',
-    fontSize: '1.3em',
-    lineHeight: '1.3',
-  },
   center: {
     display: 'flex',
     justifyContent: 'center',

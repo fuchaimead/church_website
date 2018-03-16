@@ -1,5 +1,7 @@
 import React from 'react';
 import { Header, Container, Segment } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import NoMatch from './NoMatch';
 import axios from 'axios';
 
 class Announcements extends React.Component {
@@ -29,6 +31,8 @@ class Announcements extends React.Component {
   }
 
   render(){
+    const { user } = this.props;
+    if (user.id){
     return(
       <Segment basic>
         <p className='center'><i>“If you missed church last Sunday, here
@@ -36,8 +40,16 @@ class Announcements extends React.Component {
         <Header> This is the form </Header> 
         { this.displayAnnouncements() }
       </Segment>
-    )
+    )} else 
+      return(
+        <NoMatch />
+      )
   }
 }
 
-export default Announcements 
+
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default connect(mapStateToProps)(Announcements)

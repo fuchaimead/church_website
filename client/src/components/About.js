@@ -6,10 +6,10 @@ class About extends React.Component {
   render(){
     return(
       <Segment basic> 
+        <Container text>
         <Header as='h1' className='center'> About Saint John's Episcopal Church </Header>
         <p className='center'><i>“Our mission is to grow in our relationship with Christ
             and to make Him known to all."</i></p>
-        <Container text>
         <p> St. John’s is centrally located in Farmington and serves folks from the Four Corners area 
         (The Four Corners is the only place in the U.S. where four states meet: New Mexico, Colordao, 
         Utah, and Arizona). We also enjoy a close relationship with the Episcopal Church in Navajoland. </p>

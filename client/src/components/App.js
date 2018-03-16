@@ -28,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className='wrapper'>
         <NavBar />
         <Flash />
         <FetchUser>
@@ -50,6 +51,7 @@ class App extends Component {
             <Route component={ NoMatch } />
           </Switch>
         </FetchUser>
+          </div>
         <Footer /> 
       </div>
     );

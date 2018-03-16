@@ -1,11 +1,12 @@
 import React from 'react';
+import { Segment } from 'semantic-ui-react';
 
 class Resources extends React.Component{
   render(){
     return(
-      <div>
+      <Segment basic>
         Here are some links
-      </div>
+      </Segment>
     )
   }
 }

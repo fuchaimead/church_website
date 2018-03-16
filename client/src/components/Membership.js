@@ -5,12 +5,11 @@ class About extends React.Component {
   render(){
     return(
       <Segment basic> 
+        <Container text>
         <Header as='h1' className='center'> About Saint John's Episcopal Church </Header>
         <p className='center'><i>“We do not draw people to Christ by loudly discrediting what 
         they believe, telling them how wrong they are and how right we are, but by showing 
         them a light so lovely that they want to know its source.”—Madeleine L’Engle</i></p>
-
-        <Container text>
         <Header as='h3'> We Want You to be a Part of our Family </Header>
         <br />
         <p>

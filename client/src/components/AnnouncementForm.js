@@ -4,6 +4,7 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import { handleUpload } from '../actions/images';
 import { addAnnouncement } from '../actions/announcements';
+import { Link } from 'react-router-dom';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
@@ -61,6 +62,9 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
           <Button>Submit</Button> 
+          <Link to={'./announcements'} > 
+            <Button basic> Cancel </Button> 
+          </Link>
           </Form>
         </Container>
         )

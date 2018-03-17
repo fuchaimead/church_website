@@ -26,19 +26,10 @@ class Announcements extends React.Component {
           <Header>{a.title}</Header>
           <p> {a.body}</p>
           <p>{a.image}</p>
-          <Button
-              as={Link} 
-              to='announcement-form'
-              basic
-              icon
-              labelPosition='left'
-            >
-              <Icon name='add' />
-              Announcement
-            </Button>
           </div>
         )
       }) 
+        
     } else {
       return this.state.announcements.map(a => {
         return(
@@ -58,6 +49,16 @@ class Announcements extends React.Component {
         <p className='center'><i>“If you missed church last Sunday, here
         are the announcements from the bulletin of March 4</i></p>
         { this.displayAnnouncements() }
+        <Button
+            as={Link} 
+            to='announcement-form'
+            basic
+            icon
+            labelPosition='left'
+          >
+            <Icon name='add' />
+            Announcement
+          </Button>
       </Segment>
     )
   }

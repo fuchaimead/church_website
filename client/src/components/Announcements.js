@@ -10,25 +10,22 @@ class Announcements extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getAnnouncements(this.props.announcements))
-    this.checkLoaded()
   }
-
 
   componentDidUpdate() {
-    this.checkLoaded()
+    if (!this.state.loaded)
+    this.setState({ loaded: true })
   }
-
-  checkLoaded = () => {
-    if (!this.state.loaded && this.props.announcements )
-      this.setState({ loaded: true })
-  }
-
 
   deleteAnnouncement = (id) => {
     const { dispatch, deleteAnnoucement } = this.props
     const deleted = window.confirm("Delete Announcement?")
     if (deleted)
     dispatch(deleteAnnouncement(id))
+  }
+
+  editAnnouncement = (id) => {
+    //to do 
   }
 
   displayAnnouncements = () => {
@@ -41,7 +38,7 @@ class Announcements extends React.Component {
           <Header>{a.title}</Header>
           <p> {a.body}</p>
           <p>{a.image}</p>
-          <Button>Edit</Button>
+          <Button onClick={() => this.editAnnouncement()}>Edit</Button>
           <Button onClick={() => this.deleteAnnouncement(a.id)}>Delete</Button>
           </Segment>
         )

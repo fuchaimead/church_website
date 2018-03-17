@@ -32,6 +32,7 @@ class Api::AnnouncementsController < ApplicationController
   end
 
   private
+  
   def announcement_params
     params.require(:announcement).permit(:title, :body, :image)
   end

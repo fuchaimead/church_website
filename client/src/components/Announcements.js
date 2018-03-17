@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 class Announcements extends React.Component {
   state = { announcements: [] }
 
-  
   componentDidMount() {
     axios.get('/api/announcements')
       .then( res => {
@@ -69,3 +68,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Announcements) 
+
+

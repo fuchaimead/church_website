@@ -1,29 +1,43 @@
 import React from 'react';
 import { Header, Container, Segment, Form, Button, Icon } from 'semantic-ui-react';
+import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
+import { handleUpload } from '../actions/images';
+import { addAnnouncement } from '../actions/announcements';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
 class Announcements extends React.Component {
-  state = { title: '', body: '' }
+  state = { title: '', body: '', fileUploading: false }
+
+
+  toggleUploading = () => {
+    this.setState({ fileUploading: !this.state.fileUploading });
+  }
+
+
+  onDrop = (file) => {
+    const { user } = this.props
+    this.toggleUploading();
+    this.props.dispatch(handleUpload(file[0], user, this.toggleUploading));
+  }
 
   handleSubmit = (e) => {
+    const { history, dispatch } = this.props
     const { title, body } = this.state
     e.preventDefault();
-    // let quiz = { title: title, body: body }
-    // dispatch(addQuiz(quiz, history))
+    let announcement = { title: title, body: body }
+    this.props.dispatch(addAnnouncement(announcement, history))
   }
   
-
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
   
-
   render() {
     const { user } = this.props;
     const { title, body } = this.state;
     if (user.id) {
       return(
-        <Container basic>
+        <Container>
           <Header> Add Announcement </Header> 
           <Form onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
@@ -46,6 +60,7 @@ class Announcements extends React.Component {
                  >
               </Form.TextArea>
             </Form.Group>
+          <Button>Submit</Button> 
           </Form>
         </Container>
         )

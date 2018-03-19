@@ -1,13 +1,16 @@
 import React from 'react';
 import { Header, Container, Segment, Form, Button, Icon } from 'semantic-ui-react';
-import { getAnnouncements } from '../actions/announcements'
-import connect from 'react-redux';
+import { getAnnouncement, editAnnouncement } from '../actions/announcements'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class AnnouncementEditForm extends React.Component {
   state={ title: '', body: '' }
 
   componentDidMount() {
-    this.props.dispatch(getAnnouncements(id))
+    const { id, title, body } = this.props.announcement
+    this.props.dispatch(getAnnouncement(id))
+    this.setState({ title, body })
   }
 
   handleSubmit = (e) => {
@@ -20,6 +23,7 @@ class AnnouncementEditForm extends React.Component {
   }
 
   render(){
+    const { title, body } = this.state
       return(
         <Container>
           <Header> Edit Announcement </Header> 
@@ -56,7 +60,7 @@ class AnnouncementEditForm extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  return { announcement: state.announcement }
+  return { announcement: state.announcements }
 }
 
 

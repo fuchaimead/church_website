@@ -68,7 +68,6 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
           <Button>Submit</Button> 
-           <Form.Button basic onClick={toggleEdit}>Cancel</Form.Button> 
           <Link to={'./announcements'} > 
             <Button basic> Cancel </Button> 
           </Link>

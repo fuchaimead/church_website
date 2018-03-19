@@ -25,9 +25,9 @@ class Announcements extends React.Component {
     dispatch(deleteAnnouncement(id))
   }
 
-  toggleEdit = () => {
-    this.setState({ editing: !this.state.editing })
-  }
+  // toggleEdit = () => {
+  //   this.setState({ editing: !this.state.editing })
+  // }
 
   displayAnnouncements = () => {
     const { id } = this.props.match.params
@@ -39,7 +39,7 @@ class Announcements extends React.Component {
           <Header>{a.title}</Header>
           <p> {a.body}</p>
           <p>{a.image}</p>
-          <Button onClick={ () => this.toggleEdit() }>Edit</Button>
+          <Button as={ Link } to={`/announcements/${a.id}`}>Edit</Button>
           <Button onClick={ () => this.deleteAnnouncement(a.id) }>Delete</Button>
           </Segment>
         )
@@ -61,7 +61,7 @@ class Announcements extends React.Component {
   render(){
     const { editing } = this.state;
     if(editing) {
-      return <AnnouncementEditForm announcement={this.props.announcement} toggleEdit={this.toggleEdit} editing />
+      return <AnnouncementEditForm announcement={this.props.announcements} toggleEdit={this.toggleEdit} editing />
     } else {
     return(
       <Segment basic>
@@ -89,7 +89,8 @@ class Announcements extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    announcements: state.announcements };
+    announcements: state.announcements 
+  };
 };
 
 export default connect(mapStateToProps)(Announcements) 

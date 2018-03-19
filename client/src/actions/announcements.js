@@ -15,6 +15,19 @@ export const getAnnouncements = () => {
   }
 }
 
+export const getAnnouncement = (id) => {
+  return(dispatch) => {
+    axios.get(`/api/announcements/${id}`)
+      .then( res => {
+        const announcement = res.data;
+        dispatch({ type: 'GET_ANNOUNCEMENT', announcement });
+      }).catch( res => {
+        const { headers } = res;
+        dispatch(setFlash('Failed to get announcement. Please try again!', 'red'));
+        dispatch({ type: 'SET_HEADERS', headers });
+    });
+  }
+}
 export const addAnnouncement = (announcement, history) => {
   return(dispatch) => {
     axios.post('/api/announcements', announcement)

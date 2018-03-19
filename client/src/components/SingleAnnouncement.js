@@ -12,14 +12,14 @@ class SingleAnnouncement extends React.Component {
   }
 
   deleteAnnouncement = () => {
-    const { dispatch, deleteAnnoucement, announcement } = this.props
+    const { dispatch, announcement } = this.props
     const deleted = window.confirm("Delete Announcement?")
     if (deleted)
     dispatch(deleteAnnouncement(announcement.id))
   }
   
   render(){
-    const { announcement: {title, body} } = this.props; 
+    const { announcement: {title, body, image} } = this.props; 
     const { editing } = this.state;
     if (editing){
       return <AnnouncementForm announcement={ this.props.announcement } toggleEdit={ this.toggleEdit } editing />

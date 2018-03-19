@@ -18,26 +18,31 @@ class Announcements extends React.Component {
     } 
   }
 
-  toggleUploading = () => {
-    this.setState({ fileUploading: !this.state.fileUploading });
-  }
+  // toggleUploading = () => {
+  //   this.setState({ fileUploading: !this.state.fileUploading });
+  // }
 
 
-  onDrop = (file) => {
-    const { user } = this.props
-    this.toggleUploading();
-    this.props.dispatch(handleUpload(file[0], user, this.toggleUploading));
-  }
+  // onDrop = (file) => {
+  //   const { user } = this.props
+  //   this.toggleUploading();
+  //   this.props.dispatch(handleUpload(file[0], user, this.toggleUploading));
+  // }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = (e) => {
-    const { history, dispatch } = this.props
-    const { title, body } = this.state
     e.preventDefault();
-    let announcement = { title: title, body: body }
-    this.props.dispatch(addAnnouncement(announcement, history))
+    const { dispatch, toggleForm, editing } = this.props
+    if (editing){
+      dispatch(editAnnouncement(this.state, this.props.announcement.id ))
+      this.props.toggleEdit()
+    } else {
+      dispatch(addAnnouncement(this.state))
+      toggleForm()
+    }
   }
   
-  handleChange = (e, { name, value }) => this.setState({ [name]: value })
   
   render() {
     const { user, toggleEdit, editing } = this.props;
@@ -45,7 +50,6 @@ class Announcements extends React.Component {
     if (user.id) {
       return(
         <Container>
-          {/* <Header> Add Announcement </Header>  */}
           <Form onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
               <Form.Input 
@@ -68,9 +72,7 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
           <Button>Submit</Button> 
-          <Link to={'./announcements'} > 
-            <Button basic> Cancel </Button> 
-          </Link>
+          { editing && <Form.Button basic onClick={ toggleEdit }>Cancel</Form.Button> }
           </Form>
         </Container>
         )

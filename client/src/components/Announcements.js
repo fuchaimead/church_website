@@ -4,9 +4,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { deleteAnnouncement, getAnnouncements } from '../actions/announcements';
 import { Link } from 'react-router-dom';
+import AnnouncementEditForm from './AnnouncementEditForm'
 
 class Announcements extends React.Component {
-  state = { loaded: false }
+  state = { loaded: false, editing: false }
 
   componentDidMount() {
     this.props.dispatch(getAnnouncements(this.props.announcements))
@@ -24,8 +25,8 @@ class Announcements extends React.Component {
     dispatch(deleteAnnouncement(id))
   }
 
-  editAnnouncement = (id) => {
-    //to do 
+  toggleEdit = () => {
+    this.setState({ editing: !this.state.editing })
   }
 
   displayAnnouncements = () => {
@@ -38,8 +39,8 @@ class Announcements extends React.Component {
           <Header>{a.title}</Header>
           <p> {a.body}</p>
           <p>{a.image}</p>
-          <Button onClick={() => this.editAnnouncement()}>Edit</Button>
-          <Button onClick={() => this.deleteAnnouncement(a.id)}>Delete</Button>
+          <Button onClick={ () => this.toggleEdit() }>Edit</Button>
+          <Button onClick={ () => this.deleteAnnouncement(a.id) }>Delete</Button>
           </Segment>
         )
       }) 
@@ -58,6 +59,10 @@ class Announcements extends React.Component {
   }
 
   render(){
+    const { editing } = this.state;
+    if(editing) {
+      return <AnnouncementEditForm announcement={this.props.announcement} toggleEdit={this.toggleEdit} editing />
+    } else {
     return(
       <Segment basic>
         <p className='center'><i>“If you missed church last Sunday, here
@@ -77,6 +82,7 @@ class Announcements extends React.Component {
         </Container>
       </Segment>
     )
+   }
   }
 }
 

@@ -3,7 +3,7 @@ import { Header, Container, Segment, Form, Button, Icon } from 'semantic-ui-reac
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import { handleUpload } from '../actions/images';
-import { addAnnouncement } from '../actions/announcements';
+import { addAnnouncement, editAnnouncement } from '../actions/announcements';
 import { Link } from 'react-router-dom';
 import NoMatch from './NoMatch';
 import axios from 'axios';
@@ -11,6 +11,12 @@ import axios from 'axios';
 class Announcements extends React.Component {
   state = { title: '', body: '', fileUploading: false }
 
+  componentDidMount() {
+    const { editing } = this.props;
+    if(editing) {
+      this.setState({ body: this.state.body, title: this.state.title });
+    } 
+  }
 
   toggleUploading = () => {
     this.setState({ fileUploading: !this.state.fileUploading });
@@ -34,12 +40,12 @@ class Announcements extends React.Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
   
   render() {
-    const { user } = this.props;
+    const { user, toggleEdit, editing } = this.props;
     const { title, body } = this.state;
     if (user.id) {
       return(
         <Container>
-          <Header> Add Announcement </Header> 
+          {/* <Header> Add Announcement </Header>  */}
           <Form onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
               <Form.Input 
@@ -62,6 +68,7 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
           <Button>Submit</Button> 
+           <Form.Button basic onClick={toggleEdit}>Cancel</Form.Button> 
           <Link to={'./announcements'} > 
             <Button basic> Cancel </Button> 
           </Link>

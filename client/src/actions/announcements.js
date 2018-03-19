@@ -30,6 +30,20 @@ export const addAnnouncement = (announcement, history) => {
   }
 }
 
+export const editAnnouncement = (announcement, id) => {
+  return(dispatch) => {
+    axios.put(`/api/announcements/${id}`, announcement) 
+      .then( res => {
+        const { headers } = res;
+        dispatch({ type: 'EDIT_ANNOUNCEMENT', announcement: res.data, headers })
+      }).catch( err => {
+        const { headers } = err;
+        dispatch(setFlash('Failed to update announcement. Please try again!', 'red'));
+        dispatch({ type: 'SET_HEADERS', headers })
+    });
+  }
+}
+
 export const deleteAnnouncement = (id) => {
   return(dispatch) => {
     axios.delete(`/api/announcements/${id}`)

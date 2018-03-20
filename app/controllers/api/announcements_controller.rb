@@ -13,7 +13,7 @@ class Api::AnnouncementsController < ApplicationController
     if @announcement.update(announcement_params)
       render json: @announcement
     else
-      json_error(@announcement)
+      json_error(@announcement) #check this 
     end
   end
 

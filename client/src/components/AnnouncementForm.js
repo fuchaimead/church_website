@@ -23,10 +23,10 @@ class Announcements extends React.Component {
   }
 
 
-  onDrop = (file) => {
+  onDrop = (image) => {
     const { user } = this.props
     this.toggleUploading();
-    this.props.dispatch(handleUpload(file[0], user, this.toggleUploading));
+    this.props.dispatch(handleUpload(image[0], user, this.toggleUploading));
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -52,6 +52,7 @@ class Announcements extends React.Component {
         <Container>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
+           
               <Form.Input 
                 label='Title'
                 name='title'
@@ -73,13 +74,12 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
             <Form.Group widths='equal'>
-              <Form.TextArea 
-                name='image'
-                value={image}
-                label='Image' 
-                onChange={this.handleChange}
-                 >
-              </Form.TextArea>
+            <Dropzone
+                onDrop={this.onDrop}
+                multiple={false}
+              >
+  
+              </Dropzone>
             </Form.Group>
           <Segment basic>
             <Button>Submit</Button> 

@@ -19,13 +19,13 @@ class SingleAnnouncement extends React.Component {
   }
   
   render(){
-    const { announcement: {title, body, image} } = this.props; 
+    const { announcement: {title, body, image}, user } = this.props; 
     const { editing } = this.state;
-    if (editing){
+    if (user.id && editing ){
       return <AnnouncementForm announcement={ this.props.announcement } toggleEdit={ this.toggleEdit } editing />
-    } else {
+    } else if (user.id) {
       return(
-        <Segment fluid>
+        <Segment>
           <Header>{title}</Header>
           <p> {body}</p>
           <Segment basic> 
@@ -34,6 +34,15 @@ class SingleAnnouncement extends React.Component {
           </Segment>
         </Segment>
       )
+    } else {
+      return(
+        <Segment>
+        <Header>{title}</Header>
+        <p> {body}</p>
+        <Segment basic> 
+        </Segment>
+      </Segment>
+      )
     }
   }
 }
@@ -41,6 +50,7 @@ class SingleAnnouncement extends React.Component {
 const mapStateToProps = (state) => {
   return {
     announcements: state.announcements,
+    user: state.user
   }
 }
 

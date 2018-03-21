@@ -12,7 +12,7 @@ class Announcements extends React.Component {
 
   render(){
     const { showForm } = this.state;
-    if (this.props.user.id)
+    if (this.props.user.id) {
       return(
         <Segment basic>
           <p className='center'><i>“If you missed church last Sunday, here
@@ -23,7 +23,12 @@ class Announcements extends React.Component {
           { showForm && <AnnouncementForm toggleForm={ this.toggleForm} /> }
           <DisplayAnnouncements /> 
         </Segment>
+    ) 
+  } else {
+    return(
+      <DisplayAnnouncements /> 
     )
+  }
   }
 }
 

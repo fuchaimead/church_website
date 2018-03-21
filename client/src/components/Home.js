@@ -80,7 +80,7 @@ class Home extends Component {
               <br />
               (505) 325-5832 </p>
               <Header as='h4'> Of special interest: </Header>
-              <Link to='/lent'>A little bit about Lent</Link>
+              <Link to='/lent'><p>A little bit about Lent</p></Link>
               <p>Daylight Savings Time begins</p>
               <p> Holy Week Schedule </p>
               <p>Knitting Lessons at St. John's</p>

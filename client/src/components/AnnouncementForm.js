@@ -13,9 +13,8 @@ class Announcements extends React.Component {
 
   componentDidMount() {
     const { editing } = this.props;
-    const { body, title, image } = this.state
     if(editing) {
-      this.setState({ body: body, title: title, image: image });
+      this.setState({ body: this.props.announcement.body, title: this.props.announcement.title, image: this.props.announcement.image });
     } 
   }
 
@@ -65,6 +64,7 @@ class Announcements extends React.Component {
             </Form.Group>
             <Form.Group widths='equal'>
               <Form.TextArea 
+                placeholder='Body' 
                 name='body'
                 value={body}
                 label='Body' 
@@ -81,8 +81,10 @@ class Announcements extends React.Component {
                  >
               </Form.TextArea>
             </Form.Group>
-          <Button>Submit</Button> 
-          { editing && <Form.Button basic onClick={ toggleEdit }>Cancel</Form.Button> }
+          <Segment basic>
+            <Button>Submit</Button> 
+            { editing && <Button basic onClick={ toggleEdit }>Cancel</Button> }
+            </Segment>
           </Form>
         </Container>
         )

@@ -21,7 +21,6 @@ export const addAnnouncement = (announcement, history) => {
       .then( res => {
         const { headers } = res;
         dispatch({ type: 'ADD_ANNOUNCEMENT', announcement: res.data, headers })
-        history.push('./announcements')
       }).catch( res => {
         const { headers } = res;
         dispatch(setFlash('Failed to add announcement. Please try again!', 'red'));

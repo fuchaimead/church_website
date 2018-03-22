@@ -13,10 +13,5 @@
 !/log/.keep
 !/tmp/.keep
 
-
-.DS_Store
+.byebug_history
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local

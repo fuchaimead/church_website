@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Container, Segment, Form, Button, Icon, Image } from 'semantic-ui-react';
+import { Header, Container, Segment, Form, Button, Icon, Image, Loader, Dimmer } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import { handleUpload } from '../actions/images';
@@ -8,8 +8,12 @@ import { Link } from 'react-router-dom';
 import NoMatch from './NoMatch';
 import axios from 'axios';
 
+
+const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png'
+
+
 class Announcements extends React.Component {
-  state = { title: '', body: '', fileUploading: false }
+  state = { title: '', body: '', image: '', fileUploading: false }
 
   componentDidMount() {
     const { editing } = this.props;
@@ -71,9 +75,19 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
             <Form.Group widths='equal'>
-            <Dropzone onDrop={this.onDrop}> 
-              <Image src={`${image}`} />
-            </Dropzone>
+            { this.state.fileUploading ?
+                  <Dimmer active>
+                    <Loader>Loading</Loader>
+                  </Dimmer> :
+                  <Dropzone onDrop={this.onDrop}>
+                    <Segment basic style={{alignSelf: 'center'}}>
+                      { this.props.announcement.image ?
+                        <Image src={`${this.props.announcement.image}`} /> :
+                        <Image src={ defaultImage } />
+                      }
+                    </Segment>
+                  </Dropzone>
+                }
             </Form.Group>
           <Segment basic>
             <Button>Submit</Button> 

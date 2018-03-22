@@ -1,6 +1,6 @@
 class Api::AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [ :destroy, :update, :show ]
-
+  
   def index
     render json: Announcement.all
   end
@@ -13,7 +13,7 @@ class Api::AnnouncementsController < ApplicationController
     if @announcement.update(announcement_params)
       render json: @announcement
     else
-      json_error(@announcement) #check this 
+      json_error(@announcement)
     end
   end
 

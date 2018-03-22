@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Container, Segment, Form, Button, Icon } from 'semantic-ui-react';
+import { Header, Container, Segment, Form, Button, Icon, Image } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import { handleUpload } from '../actions/images';
@@ -9,12 +9,12 @@ import NoMatch from './NoMatch';
 import axios from 'axios';
 
 class Announcements extends React.Component {
-  state = { title: '', body: '', image: '', fileUploading: false }
+  state = { title: '', body: '', fileUploading: false }
 
   componentDidMount() {
     const { editing } = this.props;
     if(editing) {
-      this.setState({ body: this.props.announcement.body, title: this.props.announcement.title, image: this.props.announcement.image });
+      this.setState({ body: this.props.announcement.body, title: this.props.announcement.title });
     } 
   }
 
@@ -22,11 +22,9 @@ class Announcements extends React.Component {
     this.setState({ fileUploading: !this.state.fileUploading });
   }
 
-
-  onDrop = (image) => {
-    const { user } = this.props
+  onDrop = (file) => {
     this.toggleUploading();
-    this.props.dispatch(handleUpload(image[0], user, this.toggleUploading));
+    this.props.dispatch(handleUpload(file[0], this.toggleUploading));
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -52,7 +50,6 @@ class Announcements extends React.Component {
         <Container>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group widths='equal'>
-           
               <Form.Input 
                 label='Title'
                 name='title'
@@ -74,12 +71,9 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
             <Form.Group widths='equal'>
-            <Dropzone
-                onDrop={this.onDrop}
-                multiple={false}
-              >
-  
-              </Dropzone>
+            <Dropzone onDrop={this.onDrop}> 
+              <Image src={`${image}`} />
+            </Dropzone>
             </Form.Group>
           <Segment basic>
             <Button>Submit</Button> 

@@ -25,18 +25,18 @@ class Announcements extends React.Component {
         </Segment>
     ) 
   } else {
-    return(
-      <DisplayAnnouncements /> 
-    )
-  }
+      return(
+        <DisplayAnnouncements /> 
+      )
+    }
   }
 }
 
 const mapStateToProps = state => {
   return {
     user: state.user,
-  };
-};
+  }
+}
 
 export default connect(mapStateToProps)(Announcements) 
 

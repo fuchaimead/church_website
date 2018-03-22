@@ -12,7 +12,7 @@ class Api::ImagesController < ApplicationController
     uploaded_file = params[uploaded_image_name]
 
     begin
-      cloud_image = Cloudinary::Uploader.upload(uploaded_file, auth, width: 200, height: 200)
+      cloud_image = Cloudinary::Uploader.upload(uploaded_file, auth)
       image = Image.create(url: cloud_image['url'])
       render json: image
     rescue => e

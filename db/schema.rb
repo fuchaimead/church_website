@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321180535) do
+ActiveRecord::Schema.define(version: 20180322212343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20180321180535) do
 
   create_table "images", force: :cascade do |t|
     t.string "url"
+    t.bigint "announcement_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_images_on_announcement_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +60,5 @@ ActiveRecord::Schema.define(version: 20180321180535) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "images", "announcements"
 end

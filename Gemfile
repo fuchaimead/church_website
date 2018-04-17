@@ -32,6 +32,7 @@ gem 'devise'
 gem 'devise_token_auth'
 group :development, :test do
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -13,7 +13,7 @@ const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png'
 
 
 class Announcements extends React.Component {
-  state = { title: '', body: '', image: '', fileUploading: false }
+  state = { title: '', body: '', fileUploading: false }
 
   componentDidMount() {
     const { editing } = this.props;
@@ -22,13 +22,13 @@ class Announcements extends React.Component {
     } 
   }
 
-  toggleUploading = () => {
-    this.setState({ fileUploading: !this.state.fileUploading });
-  }
+  // toggleUploading = () => {
+  //   this.setState({ fileUploading: !this.state.fileUploading });
+  // }
 
   onDrop = (file) => {
-    this.toggleUploading();
-    this.props.dispatch(handleUpload(file[0], this.toggleUploading));
+    // this.toggleUploading();
+    this.props.dispatch(handleUpload(file[0], this.props.announcement, this.toggleUploading));
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -45,10 +45,9 @@ class Announcements extends React.Component {
     }
   }
   
-  
   render() {
     const { user, toggleEdit, editing } = this.props;
-    const { title, body, image } = this.state;
+    const { title, body } = this.state;
     if (user.id) {
       return(
         <Container>
@@ -75,19 +74,14 @@ class Announcements extends React.Component {
               </Form.TextArea>
             </Form.Group>
             <Form.Group widths='equal'>
-            { this.state.fileUploading ?
-                  <Dimmer active>
-                    <Loader>Loading</Loader>
-                  </Dimmer> :
-                  <Dropzone onDrop={this.onDrop}>
-                    <Segment basic style={{alignSelf: 'center'}}>
-                      { this.props.announcement.image ?
-                        <Image src={`${this.props.announcement.image}`} /> :
-                        <Image src={ defaultImage } />
-                      }
-                    </Segment>
-                  </Dropzone>
-                }
+              <Dropzone onDrop={this.onDrop}>
+                <Segment basic style={{alignSelf: 'center'}}>
+                  { this.state.image ?
+                    <Image src={`${this.props.announcement.image}`} /> :
+                    <Image src={ defaultImage } />
+                  }
+                </Segment>
+              </Dropzone>
             </Form.Group>
           <Segment basic>
             <Button>Submit</Button> 

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
   namespace :api do
     resources :announcements
-    get  'images', to: 'image#index'
+    get  'image', to: 'image#index'
     post 'images', to: 'images#create'
   end
 

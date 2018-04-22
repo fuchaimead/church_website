@@ -72,13 +72,6 @@ class Home extends Component {
             </Grid.Column>
             <Grid.Column width={8}>
               <Container>
-              <p>Saint John's Episcopal
-                <br />
-              312 North Orchard Ave.
-              <br />
-              Farmington, NM 87401
-              <br />
-              (505) 325-5832 </p>
               <Header as='h4'> Of special interest: </Header>
               <Link to='/lent'><p>A little bit about Lent</p></Link>
               <p>Daylight Savings Time begins</p>
